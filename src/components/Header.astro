@@ -1,0 +1,32 @@
+---
+import NavBar from "./NavBar.astro";
+
+---
+
+<header class="flex w-full justify-between sticky top-0 py-1 md:py-3 bg-inherit z-10">
+  <a href="/#home" rel="noopener noreferrer">
+    <h1 class="logo font-bold text-xl">
+      David<span class="text-[#ef8203]">[</span>dev<span class="text-[#ef8203]">]</span>
+    </h1>
+  </a>
+  <div class="flex justify-center gap-7">
+    <NavBar/>
+    <img
+      class="cursor-pointer transition ease-in-out"
+      width={22}
+      height={22}
+      src="/icons/dark-mode.svg"
+      alt="darkMode Button"
+      id="theme-dark"
+    />
+    <img
+      class="cursor-pointer transition ease-in-out"
+      width={22}
+      height={22}
+      src="/icons/light-mode.svg"
+      alt="darkMode Button"
+      id="theme-light"
+      hidden
+    />
+  </div>
+</header>

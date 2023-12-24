@@ -1,0 +1,63 @@
+---
+const skills = [
+  ['html', 'HTML'],
+  ['css', 'CSS'],
+  ['tailwind', 'TailwindCSS'],
+  ['javascript', 'JavaScript'],
+  ['typescript', 'TypeScript'],
+  ['node', 'NodeJS'],
+  ['express', 'Express'],
+  ['react', 'React'],
+  ['astrojs', 'Astro'],
+  ['next', 'NextJS'],
+  ['redux', 'Redux'],
+  ['sequelize', 'Sequelize'],
+  ['graphql', 'GraphQL'],
+  ['postgresql', 'PostgreSQL'],
+  ['mongo', 'MongoDB'],
+  ['expo', 'Expo']
+]
+
+import { data } from '../utils/projects-resource.js'
+---
+
+<section id="my-job" class="">
+  <h2>¿Qué hago?</h2>
+  <div class="flex flex-col-reverse mt-4 gap-10">
+    <article class="flex flex-col w-full">
+      <h3 class="dark:text-amber-500 text-amber-600 text-2xl font-bold mx-auto">
+        Habilidades
+      </h3>
+      <div
+        class="grid grid-cols-3 gap-4 w-full md:flex md:flex-wrap md:justify-center md:gap-4 mt-6 md:px-14">
+        {
+          skills.map((skill) => (
+            <div class="grid place-items-center rounded-lg bg-slate-800 dark:bg-slate-700 gap-3 p-1 px-2 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300">
+              <img
+                class="object-contain h-8 justify-start"
+                width="70"
+                height="70"
+                src={`/skills/${skill[0]}.svg`}
+                alt={skill[1]}
+              />
+              <span class="font-semibold text-slate-400 dark:text-slate-300">{skill[1]}</span>
+            </div>
+          ))
+        }
+      </div>
+    </article>
+    <article class="flex flex-col w-full">
+      <h3 class="dark:text-amber-500 text-amber-600 text-2xl font-bold mx-auto">Proyectos</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 w-full justify-center mt-4">
+        {
+          data.map((project) => (
+            <div class="p-2 dark:bg-slate-500 bg-slate-800 cursor-pointer rounded-lg transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300">
+              <img class="h-auto object-contain" src={project.image} alt={project.name} />
+              <h4 class="dark:text-slate-900 text-slate-200 font-bold">{project.name}</h4>
+            </div>
+          ))
+        }
+      </div>
+    </article>
+  </div>
+</section>
