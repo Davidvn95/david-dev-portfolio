@@ -25,7 +25,7 @@ const { title } = Astro.props
       property="og:description"
       content="Portafolio de David Vergara, desarrollador full stack con experiencia en JavaScript, React, Astro, Next, TailwindCSS, NodeJS, entre otras tecnologías relacionadas"
     />
-    <meta property="og:site_name" content="David.dev">
+    <meta property="og:site_name" content="David.dev" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://david-dev-portfolio.vercel.app/" />
     <meta property="og:image" content="/open-graph-image.png" />
@@ -41,6 +41,7 @@ const { title } = Astro.props
 <style is:global>
   html {
     font-family: sans-serif;
+    scroll-behavior: smooth;
   }
 
   #footer,
@@ -63,7 +64,6 @@ const { title } = Astro.props
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
       return localStorage.getItem('theme')
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      console.log('sin storage')
       return 'dark'
     } else return 'light'
   })()

@@ -32,7 +32,7 @@ import { data } from '../utils/projects-resource.js'
         class="grid grid-cols-3 gap-4 w-full md:flex md:flex-wrap md:justify-center md:gap-4 mt-6 md:px-14">
         {
           skills.map((skill) => (
-            <div class="grid place-items-center rounded-lg bg-slate-800 dark:bg-slate-700 gap-3 p-1 px-2 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300">
+            <div class="grid place-items-center rounded-lg bg-slate-800 dark:bg-slate-700 gap-3 p-1 px-2">
               <img
                 class="object-contain h-8 justify-start"
                 width="70"
@@ -51,9 +51,22 @@ import { data } from '../utils/projects-resource.js'
       <div class="grid grid-cols-2 md:grid-cols-3 gap-3 w-full justify-center mt-4">
         {
           data.map((project) => (
-            <div class="p-2 dark:bg-slate-500 bg-slate-800 cursor-pointer rounded-lg transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300">
-              <img class="h-auto object-contain" src={project.image} alt={project.name} />
-              <h4 class="dark:text-slate-900 text-slate-200 font-bold">{project.name}</h4>
+            <div class="p-2 dark:bg-slate-500 bg-slate-800 rounded-lg transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300">
+              <img
+                class="h-auto object-contain rounded-md"
+                src={project.image}
+                alt={project.name}
+              />
+              <div class="flex w-full justify-between mt-8">
+                <h4 class="dark:text-slate-900 text-slate-200 font-bold">{project.name}</h4>
+                <a
+                  class="font-semibold text-slate-300 dark:text-slate-900"
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Demo
+                </a>
+              </div>
             </div>
           ))
         }
