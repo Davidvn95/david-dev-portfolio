@@ -48,19 +48,19 @@ import { data } from '../utils/projects-resource.js'
     </article>
     <article class="flex flex-col w-full">
       <h3 class="dark:text-amber-500 text-amber-600 text-2xl font-bold mx-auto">Proyectos</h3>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 w-full justify-center mt-4">
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 w-full justify-center mt-4">
         {
           data.map((project) => (
-            <div class="p-2 dark:bg-slate-500 bg-slate-800 rounded-lg transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300">
+            <div class="p-2 dark:bg-slate-800 bg-slate-300 shadow-sm shadow-slate-400 dark:shadow-slate-600 rounded-lg transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300">
               <img
                 class="h-auto object-contain rounded-md"
                 src={project.image}
                 alt={project.name}
               />
               <div class="flex w-full justify-between mt-8">
-                <h4 class="dark:text-slate-900 text-slate-200 font-bold">{project.name}</h4>
+                <h4 class="font-bold">{project.name}</h4>
                 <a
-                  class="font-semibold text-slate-300 dark:text-slate-900"
+                  class="font-semibold"
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer">
