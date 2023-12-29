@@ -46,21 +46,21 @@ export const links = [
   {
     link: 'about',
     name: 'Sobre mí',
-    icon: 'about.png'
+    icon: 'about.svg'
   },
   {
     link: 'experience',
     name: 'Experiencia',
-    icon: 'experience.png'
+    icon: 'experience.svg'
   },
   {
     link: 'my-job',
     name: '¿Qué hago?',
-    icon: 'my-job.png'
+    icon: 'my-job.svg'
   },
   {
     link: 'contact',
     name: 'Contáctame',
-    icon: 'contact.png'
+    icon: 'contact.svg'
   }
 ]

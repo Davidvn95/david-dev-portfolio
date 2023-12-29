@@ -3,11 +3,16 @@ import { links } from '../utils/projects-resource'
 ---
 
 <div class="flex items-end">
-  <nav class="flex fixed bottom-0 inset-x-0 w-full lg:hidden p-2 py-2 bg-bgLight dark:bg-bgDark justify-around">
+  <nav
+    class="flex fixed bottom-0 inset-x-0 w-full lg:hidden p-2 py-2 bg-bgLight dark:bg-bgDark justify-around">
     {
       links.map((link) => (
         <a href={`/#${link.link}`}>
-          <img class="h-8 object-contain bg-slate-300 dark:bg-slate-500 rounded-full p-1" src={`/icons/${link.icon}`} alt={link.name} />
+          <img
+            class="h-8 object-contain bg-slate-300 dark:bg-slate-400 rounded-full p-1"
+            src={`/icons/${link.icon}`}
+            alt={link.name}
+          />
         </a>
       ))
     }
