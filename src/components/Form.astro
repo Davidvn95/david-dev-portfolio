@@ -1,8 +1,39 @@
 ---
+import { SMTPClient } from 'emailjs'
+async function sendEmail() {
+  if (Astro.request.method === 'POST') {
+    const client = new SMTPClient({
+      host: 'smtp.gmail.com',
+      port: 465,
+      user: 'david.vergara.dev@gmail.com',
+      password: 'zytsqdkfikshuatr',
+      ssl: true
+    })
+    try {
+      const data = await Astro.request.formData()
+      const name = data.get('name')
+      const emailAddress = data.get('email')
+      const subject = data.get('subject')
+      const message = data.get('message')
 
+      const response = await client.sendAsync({
+        text: JSON.stringify(message) ?? '',
+        to: 'david.vergara.dev@gmail.com',
+        from: 'david.vergara.dev@gmail.com',
+        subject: JSON.stringify(subject)
+      })
+
+      if (response.checkValidity().isValid) {
+      }
+    } catch (e) {
+      console.error(e)
+    }
+  }
+}
+export const prerender = false
 ---
 
-<form class="grid place-items-center w-full max-w-2xl">
+<form method="post" class="grid place-items-center w-full max-w-2xl">
   <fieldset
     class="grid shadow-md border-[.5px] border-slate-400 dark:border-slate-800 dark:bg-transparent dark:shadow-slate-600 dark:shadow-sm rounded-2xl p-5 w-full place-items-center">
     <legend class="font-semibold text-amber-600 dark:text-amber-500 text-xl p-1 rounded-lg"
@@ -64,10 +95,10 @@
         d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"
       ></path>
     </svg>
-     Enviar
+    Enviar
   </button>
 </form>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" is:inline></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" is:inline></script>
 <script src="https://smtpjs.com/v3/smtp.js" is:inline></script>
 <script type="module" is:inline>
   const $form = document.querySelector('form')
@@ -111,4 +142,4 @@
   }
 
   $form.addEventListener('submit', sendEmail)
-</script>
+</script> -->
