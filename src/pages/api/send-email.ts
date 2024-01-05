@@ -1,6 +1,8 @@
 import type { APIRoute } from 'astro'
 import { SMTPClient } from 'emailjs'
 
+export const prerender = false
+
 export const POST: APIRoute = async ({ request }) => {  
   const data = await request.formData()
   const name = data.get('name')
