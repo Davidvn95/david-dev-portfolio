@@ -1,12 +1,12 @@
 ---
-import Form from "./Form.astro";
+import Form from "./Form.tsx";
 ---
 
 <section id="contact" class="">
   <h2>Contáctame</h2>
   <div class="flex flex-col mt-5 gap-16">
     <article class="w-full grid place-items-center">
-      <Form />
+      <Form client:visible/>
     </article>
   </div>
 </section>
