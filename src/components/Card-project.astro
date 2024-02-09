@@ -1,0 +1,39 @@
+---
+interface Props {
+  description: string
+  name: string
+  urlCode: string
+  urlDemo: string
+  image: string
+}
+
+const { description, name, urlCode, urlDemo, image } = Astro.props
+---
+
+<article
+  class="relative p-2 dark:bg-slate-800 bg-slate-300 shadow-sm shadow-slate-400 dark:shadow-slate-600 rounded-lg transition ease-in-out hover:-translate-y-1 hover:scale-100 duration-300 group">
+  <img class="h-auto object-contain rounded-md" src={image} alt={name} />
+  <div
+    class="absolute top-0 bottom-0 right-0 left-0 grid place-items-center p-3 rounded-lg invisible z-10 transition ease-in-out delay-100 duration-500 group-hover:visible w-full bg-slate-800 dark:bg-slate-200 dark:text-black text-white font-medium">
+    <p>{description}</p>
+  </div>
+  <div class="flex w-full justify-between mt-8">
+    <h4 class="font-bold">{name}</h4>
+    <div class="flex justify-center gap-8">
+      <a
+        class="font-semibold group-hover:z-20 text-amber-600 dark:group-hover:text-amber-700"
+        href={urlCode}
+        target="_blank"
+        rel="noopener noreferrer">
+        Código
+      </a>
+      <a
+        class="font-semibold group-hover:z-20 text-amber-600 dark:group-hover:text-amber-700"
+        href={urlDemo}
+        target="_blank"
+        rel="noopener noreferrer">
+        Demo
+      </a>
+    </div>
+  </div>
+</article>

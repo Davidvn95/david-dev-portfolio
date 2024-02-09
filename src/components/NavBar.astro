@@ -1,31 +1,25 @@
 ---
-import { links } from '../libs/data.js'
+type data = {
+  link: string
+  icon: string
+  name: string
+}
+
+interface Props {
+  links: data[]
+}
+
+const { links } = Astro.props
 ---
 
-<div class="flex items-end">
-  <nav
-    class="flex fixed bottom-0 inset-x-0 w-full lg:hidden p-2 py-2 bg-bgLight dark:bg-bgDark justify-around">
-    {
-      links.map((link) => (
-        <a href={`/#${link.link}`}>
-          <img
-            class="h-8 object-contain bg-slate-300 dark:bg-slate-400 rounded-full p-1"
-            src={`/icons/${link.icon}`}
-            alt={link.name}
-          />
-        </a>
-      ))
-    }
-  </nav>
-  <nav class="lg:flex justify-center gap-3 w-fit items-end text-sm font-semibold hidden">
-    {
-      links.map((link) => (
-        <a
-          href={`/#${link.link}`}
-          class="hover:bg-amber-700 transition ease-in delay-75 hover:bg-opacity-60 dark:hover:bg-amber-500 dark:hover:bg-opacity-70 p-2 py-[2px] rounded-sm">
-          {link.name}
-        </a>
-      ))
-    }
-  </nav>
-</div>
+<nav class="lg:flex justify-center gap-3 w-fit items-end text-sm font-semibold hidden">
+  {
+    links.map((link) => (
+      <a
+        href={`/#${link.link}`}
+        class="hover:bg-amber-700 transition ease-in delay-75 hover:bg-opacity-60 dark:hover:bg-amber-500 dark:hover:bg-opacity-70 p-2 py-[2px] rounded-sm">
+        {link.name}
+      </a>
+    ))
+  }
+</nav>

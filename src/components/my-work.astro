@@ -19,6 +19,8 @@ const skills = [
 ]
 
 import { data } from '../libs/data.js'
+import CardProject from './Card-project.astro'
+import CardSkill from './Card-skill.astro'
 ---
 
 <section id="my-job" class="">
@@ -29,57 +31,26 @@ import { data } from '../libs/data.js'
         Habilidades
       </h3>
       <div
-        class="grid grid-cols-3 gap-4 w-full md:flex md:flex-wrap md:justify-center md:gap-4 mt-6 md:px-14">
+        class="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full md:flex md:flex-wrap md:justify-center md:gap-4 mt-6 md:px-14">
         {
           skills.map((skill) => (
-            <div class="grid place-items-center rounded-lg bg-slate-800 dark:bg-slate-700 gap-3 p-1 px-2">
-              <img
-                class="object-contain h-8 justify-start"
-                width="70"
-                height="70"
-                src={`/skills/${skill[0]}.svg`}
-                alt={skill[1]}
-              />
-              <span class="font-semibold text-slate-400 dark:text-slate-300">{skill[1]}</span>
-            </div>
+            <CardSkill skill={skill}/>
           ))
         }
       </div>
     </article>
     <article class="flex flex-col w-full">
       <h3 class="dark:text-amber-500 text-amber-600 text-2xl font-bold mx-auto">Proyectos</h3>
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 w-full justify-center mt-4">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 w-full justify-center mt-4">
         {
           data.map((project) => (
-            <div class="relative p-2 dark:bg-slate-800 bg-slate-300 shadow-sm shadow-slate-400 dark:shadow-slate-600 rounded-lg transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300 group">
-              <img
-                class="h-auto object-contain rounded-md"
-                src={project.image}
-                alt={project.name}
-              />
-              <div class="absolute top-0 bottom-0 right-0 left-0 grid place-items-center p-3 rounded-lg invisible z-10 transition ease-in-out delay-100 duration-500 group-hover:visible w-full bg-slate-800 dark:bg-slate-200 dark:bg-opacity-60 dark:text-black bg-opacity-75 text-white font-medium">
-                <p>{project.description}</p>
-              </div>
-              <div class="flex w-full justify-between mt-8">
-                <h4 class="font-bold">{project.name}</h4>
-                <div class="flex justify-center gap-8">
-                  <a
-                    class="font-semibold group-hover:z-20 text-amber-600 dark:group-hover:text-amber-700"
-                    href={project.code}
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Código
-                  </a>
-                  <a
-                    class="font-semibold group-hover:z-20 text-amber-600 dark:group-hover:text-amber-700"
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Demo
-                  </a>
-                </div>
-              </div>
-            </div>
+            <CardProject
+              description={project.description}
+              name={project.name}
+              urlCode={project.code}
+              urlDemo={project.demo}
+              image={project.image}
+            />
           ))
         }
       </div>
