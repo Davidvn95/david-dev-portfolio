@@ -1,5 +1,7 @@
 ---
 import NavBar from './NavBar.astro'
+import NavMobile from './NavBar-mobile.astro'
+import { links } from '../libs/data'
 ---
 
 <header class="flex w-full justify-between sticky top-0 py-1 md:py-3 bg-inherit z-10">
@@ -9,7 +11,10 @@ import NavBar from './NavBar.astro'
     </h1>
   </a>
   <div class="flex justify-center gap-7">
-    <NavBar />
+<div class="flex items-end">
+  <NavMobile links={links}/>
+  <NavBar links={links}/>
+</div>
     <img
       class="cursor-pointer transition ease-linear hover:scale-[.9] active:scale-95"
       width={22}
