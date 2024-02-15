@@ -1,7 +1,7 @@
 export const data = [
   {
     name: 'Space Food Store',
-    image: '/projects/space-food.png',
+    image: '/projects/space-food.avif',
     description:
       'Aplicación de pedidos con integracion de pasarela de págos, autenticación con Google y Facebook y actualización de estados de los pedidos mediante socket.io',
     demo: 'https://spacefood.netlify.app/',
@@ -17,7 +17,7 @@ export const data = [
   },
   {
     name: 'Good Reads',
-    image: '/projects/good-reads.png',
+    image: '/projects/good-reads.avif',
     description:
       'Aplicación creada como participación a los retos de programación del creador de contenido, midudev, cuenta con filtros combinados, sincronización de pestañas y persistencia de datos',
     demo: 'https://goodreads-midu.vercel.app/',
@@ -33,7 +33,7 @@ export const data = [
   },
   {
     name: 'Pokedex',
-    image: '/projects/pokedex.png',
+    image: '/projects/pokedex.webp',
     description:
       'Aplicación de pokemos creada para colocar en práctica mis conocimientos adquiridos sobre las herramientas del ecosistema PERN.',
     demo: 'https://front-pokemons.vercel.app/',
@@ -41,7 +41,7 @@ export const data = [
   },
   {
     name: 'Rick & Morty',
-    image: '/projects/rick&morty.png',
+    image: '/projects/rick&morty.webp',
     description:
       'Aplicación de react con la que di mis primeros pasos en la programación web.',
     demo: 'https://rick-and-morty-app-sigma-beige.vercel.app/',
