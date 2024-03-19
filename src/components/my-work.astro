@@ -7,6 +7,7 @@ const skills = [
   ['typescript', 'TypeScript'],
   ['node', 'NodeJS'],
   ['express', 'Express'],
+  ['qwik', 'Qwik JS'],
   ['react', 'React'],
   ['astrojs', 'Astro'],
   ['next', 'NextJS'],
@@ -31,7 +32,7 @@ import CardSkill from './Card-skill.astro'
         Habilidades
       </h3>
       <div
-        class="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full md:flex md:flex-wrap md:justify-center md:gap-4 mt-6 md:px-14">
+        class="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full md:flex md:flex-wrap md:justify-center md:gap-4 mt-6 md:px-4">
         {
           skills.map((skill) => (
             <CardSkill skill={skill}/>
@@ -41,7 +42,7 @@ import CardSkill from './Card-skill.astro'
     </article>
     <article class="flex flex-col w-full">
       <h3 class="dark:text-amber-500 text-amber-600 text-2xl font-bold mx-auto">Proyectos</h3>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 w-full justify-center mt-4">
+      <div class="grid sm:grid-cols-2 gap-3 w-full justify-center mt-4">
         {
           data.map((project) => (
             <CardProject

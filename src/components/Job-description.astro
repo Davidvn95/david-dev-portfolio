@@ -1,0 +1,25 @@
+---
+interface Props{
+  title: string
+  place: string
+  initialDate: string
+  finalDate?: string
+  description: string
+  country: string
+  type: 'Remoto' | 'Presencial'
+  industry: string
+}
+
+const {title, place, initialDate, finalDate, description, country, type, industry} = Astro.props
+---
+
+<article class="flex pl-3 md:pl-10 gap-3 md:gap-7 mt-5">
+    <div class="bg-firstLight min-w-[2px] max-w-[2px]"></div>
+    <div class="flex flex-col">
+      <h3><span class="font-semibold">{title}</span>{` en ${place}.`}</h3>
+      <i class="text-sm font-semibold text-amber-700 dark:text-firstLight/70">{`${initialDate} – ${finalDate || 'Actual'}. [${country}] [${type}] [${industry}]`}</i>
+      <p class="text-pretty">
+        {description}
+      </p>
+    </div>
+  </article>

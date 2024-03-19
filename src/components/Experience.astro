@@ -1,31 +1,48 @@
-<section id="experience" class="">
-  <h2>Experiencia</h2>
-  <article class="flex pl-3 md:pl-10 gap-3 md:gap-7 mt-5">
-    <div class="bg-firstLight text-firstLight">.</div>
-    <div class="flex flex-col">
-      <h3><span class="font-semibold">Desarrollador Full Stack</span> en HotDoggui Food.</h3>
-      <i>Septiembre 2023 – Diciembre 2023. [Colombia] [Remoto] [Alimentos]</i>
-      <p>
-        Diseño y desarrollo un aplicativo web para el restaurante que permita la gestión
-        eficiente de sus pedidos de manera automatizada, con una lógica de negocio que
-        contribuya con el incremento de las ventas a domicilio en un 20% presupuestado.
-      </p>
-    </div>
-  </article>
+---
+import JobDescription from "./Job-description.astro";
+---
 
-  <article class="flex pl-3 md:pl-10 gap-3 md:gap-7 mt-5">
-    <div class="bg-firstLight text-firstLight">.</div>
-    <div class="flex flex-col">
-      <h3>
-        <span class="font-semibold">Desarrollador Front-end</span> en Evolutica Tech LLC.
-      </h3>
-      <i>Abril 2023 – Julio 2023. [Colombia] [Remoto] [Fintech]</i>
-      <p>
-        Con un equipo desarrollamos el sitio web de una fintech colombiana para el uso de sus
-        clientes, creamos tambien un pluguin crediticio incrustable en todo tipo de sitios web.
-      </p>
-    </div>
-  </article>
+<section id="experience">
+  <h2>Experiencia</h2>
+  <JobDescription 
+    country="España" 
+    title="Desarrollador Front-end" 
+    type="Remoto" 
+    place="Gravitad" 
+    industry="Servicios IT" 
+    initialDate="Marzo 2024"
+    description={`Desarrollo de aplicaciones web del lado del frontend para las Start Up a las cuales 
+      la compañia busca acelerar mediante la implementación de sus negocios a sistemas web, 
+      en mi cargo soy responsable de pasar a código el diseño proporcionado por el area de UI/UX garantizando 
+      que el sitio sea fiel al diseño, además de implementar tóda la lógica para garantizar el mejor rendimiento 
+      para la aplicación y que la lógica de negocio del lado del cliente sea la correcta, haciendo el debido 
+      empalme con el equipo de backend para la su correcta integración.`}
+  />
+  <JobDescription 
+    country="Colombia" 
+    title="Desarrollador Full Stack" 
+    type="Remoto" 
+    place="HotDoggui Food" 
+    industry="Alimentos" 
+    initialDate="Septiembre 2023" 
+    finalDate="Diciembre 2023"
+    description={`Diseño y desarrollo un aplicativo web para el restaurante que permita la gestión
+        eficiente de sus pedidos de manera automatizada, con una lógica de negocio que
+        contribuya con el incremento de las ventas a domicilio en un 20% presupuestado.`}
+  />
+
+  <JobDescription 
+    title="Desarrollador Front-end" 
+    place="Evolutica Tech LLC" 
+    type="Remoto" 
+    country="Colombia" 
+    industry="Fintech" 
+    initialDate="Abril 2023" 
+    finalDate="Julio 2023"
+    description={`Con un equipo desarrollamos el sitio web de una fintech colombiana para el uso de sus
+        clientes, creamos tambien un pluguin crediticio incrustable en todo tipo de sitios web.`}
+  />
+
   <article class="max-w-full grid place-items-center mt-7">
     <div
       class="flex items-center border border-amber-700 gap-4 md:gap-8 justify-center p-3 px-4 max-w-full rounded-md">
@@ -33,7 +50,7 @@
         Echa un vistázo a mi Hoja de vida 💼
       </p>
       <img src="/icons/arrow.svg" />
-      <a href="https://1drv.ms/b/s!Ap-W9VNCqNQhr_UIpR3WpKsg-fZdpw?e=uRVW1B" target="_blank">
+      <a href="/CVDavidVergaraNavarro.pdf" target="_blank">
         <img
           width="127.52"
           height="160"
