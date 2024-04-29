@@ -12,7 +12,9 @@ const { description, name, urlCode, urlDemo, image } = Astro.props
 
 <article
   class="relative p-2 dark:bg-slate-800 bg-slate-300 shadow-sm shadow-slate-400 dark:shadow-slate-600 rounded-lg transition ease-in-out hover:-translate-y-1 hover:scale-100 duration-300 group">
-  <img class="h-auto object-contain rounded-md" src={image} alt={name} />
+  <div class="w-full overflow-hidden aspect-video rounded-md">
+    <img class="size-full object-cover" src={image} alt={name} />
+  </div>
   <div
     class="absolute top-0 bottom-0 right-0 left-0 grid place-items-center p-3 rounded-lg invisible z-10 transition ease-in-out delay-100 duration-500 group-hover:visible w-full bg-slate-800 dark:bg-slate-200 dark:text-black text-white font-medium">
     <p>{description}</p>

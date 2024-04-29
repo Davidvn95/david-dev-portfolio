@@ -17,7 +17,7 @@ export const data = [
   },
   {
     name: 'Space Food Admin',
-    image: '/projects/space-food-admin.png',
+    image: '/projects/space-food-admin.webp',
     description:
       'Aplicación administrativa con autenticación, encargada de recibir los pedidos y darles salida, así como actualizar el estado del mismo; control de invintario y de usuarios registrados en la aplicación de compras.',
     demo: 'https://storespacefood.netlify.app/',
@@ -33,7 +33,7 @@ export const data = [
   },
   {
     name: 'Memory Game',
-    image: '/projects/memory-game.png',
+    image: '/projects/memory-game.webp',
     description:
       'Aplicación de juego de memoria didáctico pensada para niños, para desarrollar su memoria y atención, es una PWA para que pueda ser instalada en los dispositivos desde el navegador.',
     demo: 'https://memory-game-pink-two.vercel.app/',
