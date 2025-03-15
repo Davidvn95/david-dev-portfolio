@@ -1,6 +1,6 @@
 ---
 import '@fontsource/fira-code'
-import '@fontsource-variable/montserrat';
+import '@fontsource-variable/montserrat'
 import Header from '../components/Header.astro'
 interface Props {
   title: string
@@ -10,31 +10,32 @@ const { title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="es" class="">
+<html lang='es' class=''>
   <head>
-    <meta charset="UTF-8" />
+    <meta charset='UTF-8' />
     <meta
-      name="description"
-      content="Portafolio de David Vergara, desarrollador full stack con experiencia en JavaScript, React, Astro, Next, TailwindCSS, NodeJS, entre otras tecnologías relacionadas"
+      name='description'
+      content='Portafolio de David Vergara, desarrollador full stack con experiencia en JavaScript, React, Astro, Next, TailwindCSS, NodeJS, entre otras tecnologías relacionadas'
     />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
-    <meta property="og:title" content={title} />
+    <meta property='og:title' content={title} />
     <meta
-      property="og:description"
-      content="Portafolio de David Vergara, desarrollador full stack con experiencia en JavaScript, React, Astro, Next, TailwindCSS, NodeJS, entre otras tecnologías relacionadas"
+      property='og:description'
+      content='Portafolio de David Vergara, desarrollador full stack con experiencia en JavaScript, React, Astro, Next, TailwindCSS, NodeJS, entre otras tecnologías relacionadas'
     />
-    <meta property="og:site_name" content="David.dev" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://davidvergara-portfolio.vercel.app/" />
-    <meta property="og:image" content="/open-graph-image.webp" />
+    <meta property='og:site_name' content='David.dev' />
+    <meta property='og:type' content='website' />
+    <meta property='og:url' content='https://davidvergara-portfolio.vercel.app/' />
+    <meta property='og:image' content='/open-graph-image.webp' />
   </head>
   <body
-    class="bg-white text-[#3d3d3d] dark:bg-[#1e1e1e] px-3 md:px-6 pb-5 dark:text-[#cfcfcf] w-full max-w-[1080px] text-pretty m-auto">
+    class='bg-white text-[#3d3d3d] dark:bg-[#1e1e1e] px-3 md:px-6 pb-5 dark:text-[#cfcfcf] w-full max-w-[1080px] text-pretty m-auto'
+  >
     <Header />
-    <main class="flex flex-col gap-14">
+    <main class='flex flex-col gap-14'>
       <slot />
     </main>
   </body>
@@ -61,13 +62,19 @@ const { title } = Astro.props
     font-size: 20px;
   }
 </style>
+
 <script is:inline>
   const theme = (() => {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-      return localStorage.getItem('theme')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    // Primero verificamos si hay una preferencia guardada en la sesión actual
+    if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('theme')) {
+      return sessionStorage.getItem('theme')
+    }
+    // Si no hay preferencia en la sesión, usamos la preferencia del sistema
+    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       return 'dark'
-    } else return 'light'
+    } else {
+      return 'light'
+    }
   })()
 
   const lightButton = document.getElementById('theme-light')
@@ -86,28 +93,41 @@ const { title } = Astro.props
     }
     document.documentElement.classList.add('dark')
   }
-  localStorage.setItem('theme', theme)
+  sessionStorage.setItem('theme', theme)
 
   // Evento Click al botón theme
   darkButton.addEventListener('click', () => {
-    if (localStorage.getItem('theme') === 'dark') {
+    if (sessionStorage.getItem('theme') === 'dark') {
       document.documentElement.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
+      sessionStorage.setItem('theme', 'light')
       darkButton.toggleAttribute('hidden')
       lightButton.toggleAttribute('hidden')
     }
   })
   lightButton.addEventListener('click', () => {
-    if (localStorage.getItem('theme') !== 'dark') {
+    if (sessionStorage.getItem('theme') !== 'dark') {
       document.documentElement.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
+      sessionStorage.setItem('theme', 'dark')
       darkButton.toggleAttribute('hidden')
       lightButton.toggleAttribute('hidden')
     }
   })
 
-  const eventFunction = (event) => {
-    if (event.persisted) localStorage.removeItem('theme')
-  }
-  window.addEventListener('pagehide', eventFunction)
+  // Escuchamos cambios en la preferencia del sistema solo si no hay elección manual
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    // Solo actualizamos según el sistema si el usuario no ha hecho una elección manual
+    if (!sessionStorage.getItem('theme')) {
+      const newTheme = e.matches ? 'dark' : 'light'
+
+      if (newTheme === 'light') {
+        document.documentElement.classList.remove('dark')
+        darkButton.toggleAttribute('hidden')
+        lightButton.toggleAttribute('hidden')
+      } else {
+        document.documentElement.classList.add('dark')
+        darkButton.toggleAttribute('hidden')
+        lightButton.toggleAttribute('hidden')
+      }
+    }
+  })
 </script>

@@ -1,36 +1,67 @@
 ---
-import NavBar from './NavBar.astro'
-import NavMobile from './NavBar-mobile.astro'
 import { links } from '../libs/data'
+import NavMobile from './NavBar-mobile.astro'
+import NavBar from './NavBar.astro'
 ---
 
-<header class="flex w-full justify-between sticky top-0 py-1 md:py-3 bg-inherit z-10">
-  <a href="/#home" rel="noopener noreferrer">
-    <h1 class="logo font-bold text-xl">
-      David<span class="text-[#ef8203]">[</span>dev<span class="text-[#ef8203]">]</span>
+<header class='flex w-full justify-between sticky top-0 py-1 md:py-3 bg-inherit z-10'>
+  <a href='/#home' rel='noopener noreferrer'>
+    <h1 class='logo font-bold text-xl'>
+      David<span class='text-[#ef8203]'>[</span>dev<span class='text-[#ef8203]'>]</span>
     </h1>
   </a>
-  <div class="flex justify-center gap-7">
-<div class="flex items-end">
-  <NavMobile links={links}/>
-  <NavBar links={links}/>
-</div>
-    <img
-      class="cursor-pointer transition ease-linear hover:scale-[.9] active:scale-95"
-      width={22}
-      height={22}
-      src="/icons/dark-mode.svg"
-      alt="darkMode Button"
-      id="theme-dark"
-    />
-    <img
-      class="cursor-pointer transition ease-linear hover:scale-[.9] active:scale-95"
-      width={22}
-      height={22}
-      src="/icons/light-mode.svg"
-      alt="darkMode Button"
-      id="theme-light"
-      hidden
-    />
+  <div class='flex justify-center gap-7'>
+    <div class='flex items-end'>
+      <NavMobile links={links} />
+      <NavBar links={links} />
+    </div>
+    <div class='relative inline-block group'>
+      <!-- ?BOTON PARA CAMBIAR A TEMA CLARO -->
+      <div id='theme-dark'>
+        <img
+          class='cursor-pointer transition ease-linear hover:scale-[.9] active:scale-95'
+          width={22}
+          height={22}
+          src='/icons/dark-mode.svg'
+          alt='darkMode Button'
+        />
+        <span
+          class='absolute z-10 p-1 text-nowrap text-[9px] text-white bg-gray-800 rounded shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 -translate-x-1/2 left-1/2 -bottom-[100%] group-hover:opacity-100'
+        >
+          Cambiar a tema claro
+        </span>
+      </div>
+
+      <!-- ?BOTON PARA CAMBIAR A TEMA OSCURO -->
+      <div id='theme-light' hidden>
+        <img
+          class='cursor-pointer transition ease-linear hover:scale-[.9] active:scale-95'
+          width={22}
+          height={22}
+          src='/icons/light-mode.svg'
+          alt='LightMode Button'
+        />
+        <span
+          class='absolute z-10 p-1 text-nowrap text-[9px] text-white bg-gray-800 rounded shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 -translate-x-1/2 left-1/2 -bottom-[100%] group-hover:opacity-100'
+        >
+          Cambiar a tema oscuro
+        </span>
+      </div>
+    </div>
+    <!-- <div class='relative inline-block group'>
+      <img
+        class='cursor-pointer size-6 rounded-sm transition ease-linear hover:scale-[.9] active:scale-95 bg-gradient-to-r from-amber-400 to-[#f9f871]'
+        width={22}
+        height={22}
+        src='/icons/device-theme-mode.svg'
+        alt='DeviceMode Button'
+        id='theme-device'
+      />
+      <span
+        class='absolute z-10 p-1 text-nowrap text-[9px] text-white bg-gray-800 rounded shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 -translate-x-1/2 left-1/2 -bottom-[100%] group-hover:opacity-100'
+      >
+        Tema del dispositivo
+      </span>
+    </div> -->
   </div>
 </header>
