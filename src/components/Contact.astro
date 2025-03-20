@@ -1,14 +1,18 @@
 ---
-import Form from "./Form.tsx";
+import Form from './Form.tsx';
 
 // export const prerender = true
 ---
 
-<section id="contact" class="">
+<section id='contact' class=''>
   <h2>Contáctame</h2>
-  <div class="flex flex-col mt-5 gap-16">
-    <article class="w-full grid place-items-center">
-      <Form client:visible/>
+  <div class='flex flex-col mt-5 gap-5'>
+    <p class='md:pl-10 pl-3 text-pretty'>
+      Si tienes un proyecto en mente o una idea ineresante que te gustaría llevar a cabo, no dudes en contactarme,
+      estaré encantado de ayudarte a hacerla realidad.
+    </p>
+    <article class='w-full grid place-items-center'>
+      <Form client:visible />
     </article>
   </div>
 </section>

@@ -1,26 +1,26 @@
-import { useState } from 'react'
-import Swal from 'sweetalert2'
+import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 export default function Form() {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault()
-    setIsLoading(true)
-    const form = event.target as HTMLFormElement
-    const formData = new FormData(form)
+    event.preventDefault();
+    setIsLoading(true);
+    const form = event.target as HTMLFormElement;
+    const formData = new FormData(form);
     try {
       const response = await fetch('/api/send-email', {
         method: 'POST',
         body: formData,
-      })
-      const isSuccess = await response.json()
-      setIsLoading(false)
+      });
+      const isSuccess = await response.json();
+      setIsLoading(false);
       if (isSuccess.success) {
         Swal.fire({
           title: '¡Perfecto!',
           text: 'Tu mensaje ha sido enviado, me contactaré contigo lo antes posible.',
           icon: 'success',
-        })
+        });
       } else {
         Swal.fire({
           icon: 'error',
@@ -28,9 +28,9 @@ export default function Form() {
           text: 'Parece que hubo un problema, puedes contactarme por linkedIn y lo resuelvo',
           footer:
             '<a href="https://www.linkedin.com/in/david-de-jes%C3%BAs-vergara-navarro-62169225a/" target="_blank">LinkedIn</a>',
-        })
+        });
       }
-      form.reset()
+      form.reset();
     } catch (error) {
       Swal.fire({
         icon: 'error',
@@ -38,10 +38,10 @@ export default function Form() {
         text: 'Parece que hubo un problema, puedes contactarme por linkedIn y lo resuelvo',
         footer:
           '<a href="https://www.linkedin.com/in/david-de-jes%C3%BAs-vergara-navarro-62169225a/" target="_blank">LinkedIn</a>',
-      })
-      console.log(error)
+      });
+      console.log(error);
     }
-  }
+  };
   return (
     <div className='w-full flex justify-center'>
       {isLoading && (
@@ -63,7 +63,7 @@ export default function Form() {
       <form id='email' onSubmit={handleSubmit} className='grid place-items-center w-full max-w-2xl'>
         <fieldset className='grid shadow-md border-[.5px] border-slate-400 dark:border-slate-800 dark:bg-transparent dark:shadow-slate-600 dark:shadow-sm rounded-2xl p-5 w-full place-items-center'>
           <legend className='font-semibold text-amber-600 dark:text-amber-500 text-xl p-1 rounded-lg'>
-            Envía aquí tu proyecto...
+            Formulario de contacto
           </legend>
           <label className='flex flex-col w-full p-2 font-semibold -mt-3'>
             Nombre
@@ -123,5 +123,5 @@ export default function Form() {
         </button>
       </form>
     </div>
-  )
+  );
 }

@@ -19,15 +19,16 @@ const skills = [
   ['postgresql', 'PostgreSQL'],
   ['mongo', 'MongoDB'],
   ['expo', 'Expo'],
-]
+];
 
-import { data } from '../libs/data.js'
-import CardProject from './Card-project.astro'
-import CardSkill from './Card-skill.astro'
+import { data } from '../libs/data.js';
+import CardProject from './Card-project.astro';
+import CardSkill from './Card-skill.astro';
 ---
 
 <section id='my-job' class=''>
   <h2>¿Qué hago?</h2>
+  <p class='text-pretty mt-5'>Te comparto algunos de los proyectos que he realizado y las tecnologías que manejo.</p>
   <div class='flex flex-col-reverse mt-4 gap-10'>
     <article class='flex flex-col w-full'>
       <h3 class='dark:text-amber-500 text-amber-600 text-2xl font-bold mx-auto'>Habilidades</h3>

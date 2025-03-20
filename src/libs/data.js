@@ -11,7 +11,7 @@ export const data = [
     name: 'Space Food Store',
     image: '/projects/space-food.avif',
     description:
-      'Aplicación de pedidos con integracion de pasarela de págos, autenticación con Google y Facebook y actualización de estados de los pedidos mediante socket.io',
+      'Aplicación de pedidos con integracion de pasarela de págos, fué realada como proyecto final de grupo en mi preparación inicial como desarrollador, autenticación con Google y Facebook y actualización de estados de los pedidos mediante socket.io',
     demo: 'https://spacefood.netlify.app/',
     code: 'https://github.com/EXPRESSFOOD2/customerclient',
   },
@@ -54,7 +54,7 @@ export const data = [
     demo: 'https://rick-and-morty-app-sigma-beige.vercel.app/',
     code: 'https://github.com/Davidvn95/Rick-And-Morty-APP',
   },
-]
+];
 
 export const links = [
   {
@@ -82,4 +82,4 @@ export const links = [
     name: 'Contáctame',
     icon: 'contact.svg',
   },
-]
+];
