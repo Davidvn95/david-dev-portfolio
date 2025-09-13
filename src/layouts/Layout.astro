@@ -2,6 +2,7 @@
 import '@fontsource/fira-code';
 import '@fontsource-variable/montserrat';
 import Header from '../components/Header.astro';
+// import Analytics from '@vercel/analytics/astro';
 interface Props {
   title: string;
 }
@@ -30,6 +31,7 @@ const { title } = Astro.props;
     <meta property='og:type' content='website' />
     <meta property='og:url' content='https://davidvergara.vercel.app/' />
     <meta property='og:image' content='/open-graph-image.webp' />
+    <!-- <Analytics /> -->
   </head>
   <body class='grid w-dvw max-w-screen-xl h-dvh bg-white text-[#3d3d3d] dark:bg-[#1e1e1e] px-3 md:px-6 pb-5 dark:text-[#cfcfcf] text-pretty m-auto'>
     <Header />
