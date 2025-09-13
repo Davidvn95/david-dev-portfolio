@@ -1,27 +1,22 @@
 ---
 type data = {
-  link: string
-  icon: string
-  name: string
-}
+  link: string;
+  icon: string;
+  name: string;
+};
 
 interface Props {
-  links: data[]
+  links: data[];
 }
 
-const { links } = Astro.props
+const { links } = Astro.props;
 ---
 
-<nav
-  class="flex fixed bottom-0 left-0 right-0 mx-auto w-full lg:hidden p-2 py-2 bg-gray-100 dark:bg-gray-900 justify-between shadow-md text-center">
+<nav class='flex fixed bottom-0 left-0 right-0 mx-auto w-full lg:hidden p-2 py-2 bg-gray-100 dark:bg-gray-900 justify-between shadow-md text-center'>
   {
     links.map((link) => (
       <a href={`/#${link.link}`}>
-        <img
-          class="h-8 object-contain bg-slate-300 dark:bg-slate-400 rounded-full p-1"
-          src={`/icons/${link.icon}`}
-          alt={link.name}
-        />
+        <img class='h-8 object-contain bg-slate-300 dark:bg-slate-400 rounded-full p-1' src={`/icons/${link.icon}`} alt={link.name} />
       </a>
     ))
   }

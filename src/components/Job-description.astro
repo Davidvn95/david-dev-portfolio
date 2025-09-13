@@ -1,35 +1,39 @@
 ---
-interface Props{
-  title: string
-  place: string
-  initialDate: string
-  finalDate?: string
-  description: string
-  country: string
-  type: 'Remoto' | 'Presencial'
-  industry: string
-  pills?: string[]
+interface Props {
+  title: string;
+  place: string;
+  initialDate: string;
+  finalDate?: string;
+  description: string;
+  country: string;
+  type: 'Remoto' | 'Presencial';
+  industry: string;
+  pills?: string[];
 }
 
-
-const {title, place, initialDate, finalDate, description, country, type, industry, pills} = Astro.props
+const { title, place, initialDate, finalDate, description, country, type, industry, pills } = Astro.props;
 ---
 
-<article class="flex pl-3 md:pl-10 gap-3 md:gap-3 mt-7">
-    <div class="bg-firstLight/70 dark:bg-firstLight/20 min-w-[.5px] max-w-[.5px]"></div>
-    <div class="flex flex-col">
-      <h3><span class="font-semibold">{title}</span>{` en ${place}.`}</h3>
-      <i class="text-xs font-semibold text-slate-700 dark:text-white">{`${initialDate} – ${finalDate || 'Actual'}. [${country}] [${type}] [${industry}]`}</i>
-      <p class="text-pretty">
-        {description}
-      </p>
-      {pills?.length && (
-      <div class="flex gap-2 md:gap-4 mt-3 md:mt-0">
-        {pills.map((pill, index) => (
-          <span class="bg-firstLight/10 text-firstLight dark:bg-firstLight/50 dark:text-white px-2 py-1 rounded-md text-sm font-semibold">{pill}</span>
-        ))}
-      </div>
-    )}
-    </div>
-    
-  </article>
+<article class='flex pl-3 md:pl-10 gap-3 md:gap-3 mt-7'>
+  <div class='bg-firstLight/70 dark:bg-firstLight/20 min-w-[.5px] max-w-[.5px]'></div>
+  <div class='flex flex-col'>
+    <h3><span class='font-semibold'>{title}</span>{` en ${place}.`}</h3>
+    <i class='text-xs font-semibold text-slate-700 dark:text-white'
+      >{`${initialDate} – ${finalDate || 'Actual'}. [${country}] [${type}] [${industry}]`}</i
+    >
+    <p class='text-pretty'>
+      {description}
+    </p>
+    {
+      pills?.length && (
+        <div class='flex flex-wrap gap-2 md:gap-4 mt-3 md:mt-0'>
+          {pills.map((pill, index) => (
+            <span class='bg-firstLight/10 text-firstLight dark:bg-firstLight/50 dark:text-white px-2 py-1 rounded-md text-sm font-semibold'>
+              {pill}
+            </span>
+          ))}
+        </div>
+      )
+    }
+  </div>
+</article>

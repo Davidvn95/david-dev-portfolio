@@ -1,16 +1,16 @@
 ---
-import '@fontsource/fira-code'
-import '@fontsource-variable/montserrat'
-import Header from '../components/Header.astro'
+import '@fontsource/fira-code';
+import '@fontsource-variable/montserrat';
+import Header from '../components/Header.astro';
 interface Props {
-  title: string
+  title: string;
 }
 
-const { title } = Astro.props
+const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang='es' class=''>
+<html lang='es'>
   <head>
     <meta charset='UTF-8' />
     <meta
@@ -28,14 +28,12 @@ const { title } = Astro.props
     />
     <meta property='og:site_name' content='David.dev' />
     <meta property='og:type' content='website' />
-    <meta property='og:url' content='https://davidvergara-portfolio.vercel.app/' />
+    <meta property='og:url' content='https://davidvergara.vercel.app/' />
     <meta property='og:image' content='/open-graph-image.webp' />
   </head>
-  <body
-    class='bg-white text-[#3d3d3d] dark:bg-[#1e1e1e] px-3 md:px-6 pb-5 dark:text-[#cfcfcf] w-full max-w-[1080px] text-pretty m-auto'
-  >
+  <body class='grid w-dvw max-w-screen-xl h-dvh bg-white text-[#3d3d3d] dark:bg-[#1e1e1e] px-3 md:px-6 pb-5 dark:text-[#cfcfcf] text-pretty m-auto'>
     <Header />
-    <main class='flex flex-col gap-14'>
+    <main class='grid gap-14 w-full'>
       <slot />
     </main>
   </body>
@@ -67,67 +65,67 @@ const { title } = Astro.props
   const theme = (() => {
     // Primero verificamos si hay una preferencia guardada en la sesión actual
     if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('theme')) {
-      return sessionStorage.getItem('theme')
+      return sessionStorage.getItem('theme');
     }
     // Si no hay preferencia en la sesión, usamos la preferencia del sistema
     else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark'
+      return 'dark';
     } else {
-      return 'light'
+      return 'light';
     }
-  })()
+  })();
 
-  const lightButton = document.getElementById('theme-light')
-  const darkButton = document.getElementById('theme-dark')
+  const lightButton = document.getElementById('theme-light');
+  const darkButton = document.getElementById('theme-dark');
 
   if (theme === 'light') {
     if (!darkButton.hasAttribute('hidden')) {
-      darkButton.toggleAttribute('hidden')
-      lightButton.toggleAttribute('hidden')
+      darkButton.toggleAttribute('hidden');
+      lightButton.toggleAttribute('hidden');
     }
-    document.documentElement.classList.remove('dark')
+    document.documentElement.classList.remove('dark');
   } else {
     if (!lightButton.hasAttribute('hidden')) {
-      darkButton.toggleAttribute('hidden')
-      lightButton.toggleAttribute('hidden')
+      darkButton.toggleAttribute('hidden');
+      lightButton.toggleAttribute('hidden');
     }
-    document.documentElement.classList.add('dark')
+    document.documentElement.classList.add('dark');
   }
-  sessionStorage.setItem('theme', theme)
+  sessionStorage.setItem('theme', theme);
 
   // Evento Click al botón theme
   darkButton.addEventListener('click', () => {
     if (sessionStorage.getItem('theme') === 'dark') {
-      document.documentElement.classList.remove('dark')
-      sessionStorage.setItem('theme', 'light')
-      darkButton.toggleAttribute('hidden')
-      lightButton.toggleAttribute('hidden')
+      document.documentElement.classList.remove('dark');
+      sessionStorage.setItem('theme', 'light');
+      darkButton.toggleAttribute('hidden');
+      lightButton.toggleAttribute('hidden');
     }
-  })
+  });
   lightButton.addEventListener('click', () => {
     if (sessionStorage.getItem('theme') !== 'dark') {
-      document.documentElement.classList.add('dark')
-      sessionStorage.setItem('theme', 'dark')
-      darkButton.toggleAttribute('hidden')
-      lightButton.toggleAttribute('hidden')
+      document.documentElement.classList.add('dark');
+      sessionStorage.setItem('theme', 'dark');
+      darkButton.toggleAttribute('hidden');
+      lightButton.toggleAttribute('hidden');
     }
-  })
+  });
 
   // Escuchamos cambios en la preferencia del sistema solo si no hay elección manual
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
     // Solo actualizamos según el sistema si el usuario no ha hecho una elección manual
     if (!sessionStorage.getItem('theme')) {
-      const newTheme = e.matches ? 'dark' : 'light'
+      const newTheme = e.matches ? 'dark' : 'light';
 
       if (newTheme === 'light') {
-        document.documentElement.classList.remove('dark')
-        darkButton.toggleAttribute('hidden')
-        lightButton.toggleAttribute('hidden')
+        document.documentElement.classList.remove('dark');
+        darkButton.toggleAttribute('hidden');
+        lightButton.toggleAttribute('hidden');
       } else {
-        document.documentElement.classList.add('dark')
-        darkButton.toggleAttribute('hidden')
-        lightButton.toggleAttribute('hidden')
+        document.documentElement.classList.add('dark');
+        darkButton.toggleAttribute('hidden');
+        lightButton.toggleAttribute('hidden');
       }
     }
-  })
+  });
 </script>

@@ -18,6 +18,8 @@ const skills = [
   ['graphql', 'GraphQL'],
   ['postgresql', 'PostgreSQL'],
   ['mongo', 'MongoDB'],
+  ['linux', 'Linux'],
+  ['docker', 'Docker'],
   ['expo', 'Expo'],
 ];
 
@@ -32,9 +34,7 @@ import CardSkill from './Card-skill.astro';
   <div class='flex flex-col-reverse mt-4 gap-10'>
     <article class='flex flex-col w-full'>
       <h3 class='dark:text-amber-500 text-amber-600 text-2xl font-bold mx-auto'>Habilidades</h3>
-      <div
-        class='grid grid-cols-2 sm:grid-cols-3 gap-4 w-full md:flex md:flex-wrap md:justify-center md:gap-4 mt-6 md:px-4'
-      >
+      <div class='grid grid-cols-2 sm:grid-cols-3 gap-4 w-full md:flex md:flex-wrap md:justify-center md:gap-4 mt-6 md:px-4'>
         {skills.map((skill) => <CardSkill skill={skill} />)}
       </div>
     </article>
@@ -43,13 +43,7 @@ import CardSkill from './Card-skill.astro';
       <div class='grid sm:grid-cols-2 gap-3 w-full justify-center mt-4'>
         {
           data.map((project) => (
-            <CardProject
-              description={project.description}
-              name={project.name}
-              urlCode={project.code}
-              urlDemo={project.demo}
-              image={project.image}
-            />
+            <CardProject description={project.description} name={project.name} urlCode={project.code} urlDemo={project.demo} image={project.image} />
           ))
         }
       </div>
